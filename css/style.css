@@ -470,114 +470,98 @@ p {
 }
 
 /* ============================================
-   BUTTONS
+   BUTTONS - Library Stamps & Signs
    ============================================ */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-sm);
-    padding: 0.75rem 1.5rem;
+    gap: 0.625rem;
+    padding: 0.875rem 1.75rem;
     font-size: 1rem;
     font-weight: 500;
-    font-family: inherit;
+    font-family: 'Lato', sans-serif;
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     text-decoration: none;
     position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-}
-
-.btn:hover::before {
-    width: 300px;
-    height: 300px;
+    box-shadow: 0 2px 4px rgba(61, 52, 40, 0.1);
+    letter-spacing: 0.015em;
 }
 
 .btn:hover {
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(61, 52, 40, 0.15);
+    border-bottom: none;
 }
 
 .btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(61, 52, 40, 0.15);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #4f46e5 100%);
-    color: white;
+    background: linear-gradient(180deg, var(--color-wood) 0%, var(--color-wood-dark) 100%);
+    color: #ffffff;
+    border: 1px solid var(--color-wood-dark);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--color-primary-hover) 0%, #4338ca 100%);
-    color: white;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(180deg, var(--color-wood-dark) 0%, #5d4e3d 100%);
+    color: #ffffff;
 }
 
 .btn-success {
-    background: linear-gradient(135deg, var(--color-success) 0%, #16a34a 100%);
-    color: white;
+    background: linear-gradient(180deg, var(--color-success) 0%, #5a7f53 100%);
+    color: #ffffff;
+    border: 1px solid #5a7f53;
 }
 
 .btn-success:hover {
-    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-    color: white;
-    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+    background: linear-gradient(180deg, #5a7f53 0%, #4d6b47 100%);
+    color: #ffffff;
 }
 
 .btn-danger {
-    background: linear-gradient(135deg, var(--color-danger) 0%, #dc2626 100%);
-    color: white;
+    background: linear-gradient(180deg, var(--color-danger) 0%, #934d4d 100%);
+    color: #ffffff;
+    border: 1px solid #934d4d;
 }
 
 .btn-danger:hover {
-    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-    color: white;
-    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+    background: linear-gradient(180deg, #934d4d 0%, #7d4242 100%);
+    color: #ffffff;
 }
 
 .btn-warning {
-    background: linear-gradient(135deg, var(--color-warning) 0%, #d97706 100%);
-    color: white;
+    background: linear-gradient(180deg, var(--color-warning) 0%, #b8954f 100%);
+    color: #ffffff;
+    border: 1px solid #b8954f;
 }
 
 .btn-warning:hover {
-    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-    color: white;
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    background: linear-gradient(180deg, #b8954f 0%, #a28544 100%);
+    color: #ffffff;
 }
 
 .btn-secondary {
     background: var(--color-surface-alt);
     color: var(--color-text);
-    border: 1px solid var(--color-border);
+    border: 1.5px solid var(--color-border-dark);
 }
 
 .btn-secondary:hover {
     background: var(--color-surface-hover);
-    color: var(--color-text);
-    border-color: var(--color-primary);
+    color: var(--color-text-heading);
+    border-color: var(--color-wood);
 }
 
 .btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
 }
 
 .btn-block {
@@ -586,7 +570,7 @@ p {
 
 .btn-group {
     display: flex;
-    gap: var(--spacing-sm);
+    gap: 0.75rem;
     flex-wrap: wrap;
 }
 
