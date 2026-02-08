@@ -1,0 +1,78 @@
+@startuml Library_Management_BookBorrowing_UseCase
+!theme plain
+title Library Management System - Book Borrowing & Management Use Case
+
+left to right direction
+
+actor "User" as User
+actor "Admin" as Admin
+actor "OpenLibrary API" as API
+
+rectangle "Book Borrowing System" {
+  ' Main Use Cases
+  usecase "Search Books" as UC1
+  usecase "View Book Details" as UC2
+  usecase "Borrow Book" as UC3
+  usecase "Check Availability" as UC4
+  usecase "Return Book" as UC5
+  usecase "Extend Borrowing" as UC6
+  usecase "View My Borrowings" as UC7
+  usecase "Add to Personal Shelf" as UC8
+  usecase "Rate Book" as UC9
+  
+  ' Admin Use Cases
+  usecase "Add New Book" as UC10
+  usecase "Edit Book Information" as UC11
+  usecase "Delete Book" as UC12
+  usecase "Fetch from API" as UC13
+  usecase "Manage Overdue Books" as UC14
+  usecase "View All Borrowings" as UC15
+}
+
+' User Relationships
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+User --> UC9
+
+' Admin Relationships
+Admin --> UC10
+Admin --> UC11
+Admin --> UC12
+Admin --> UC14
+Admin --> UC15
+
+' API Relationships
+API --> UC13 : provides data
+
+' Include Relationships
+UC3 ..> UC4 : <<include>>
+UC3 ..> UC2 : <<include>>
+UC5 ..> UC7 : <<include>>
+UC10 ..> UC13 : <<include>>
+UC2 ..> UC1 : <<include>>
+
+' Extend Relationships
+UC6 ..> UC3 : <<extend>>
+UC8 ..> UC2 : <<extend>>
+UC9 ..> UC5 : <<extend>>
+UC14 ..> UC15 : <<extend>>
+
+note right of UC3
+  User can only borrow if:
+  - Book is available
+  - User has no overdue books
+  - Borrowing limit not reached
+end note
+
+note right of UC6
+  Borrowing can be extended:
+  - Only once per borrowing
+  - Before due date
+end note
+
+@enduml

@@ -1,0 +1,80 @@
+@startuml Library_Management_Global_Sequence
+!theme plain
+title Library Management System - User Authentication & Book Borrowing Sequence
+
+actor User
+participant "Browser" as Browser
+participant "LoginController" as Login
+participant "Database" as DB
+participant "DashboardController" as Dashboard
+participant "BookController" as Book
+participant "BorrowingController" as Borrow
+
+== Authentication ==
+User -> Browser: Enter credentials
+Browser -> Login: POST /login.php
+activate Login
+Login -> DB: SELECT user WHERE email=?
+activate DB
+DB --> Login: User data
+deactivate DB
+
+alt Valid Credentials
+    Login -> Login: password_verify()
+    Login -> Login: Start session
+    Login --> Browser: Redirect to dashboard
+    deactivate Login
+    
+    Browser -> Dashboard: GET /user/dashboard.php
+    activate Dashboard
+    Dashboard -> DB: Get user statistics
+    activate DB
+    DB --> Dashboard: Borrowed books, overdue count
+    deactivate DB
+    Dashboard --> Browser: Display dashboard
+    deactivate Dashboard
+    
+    == Book Borrowing ==
+    User -> Browser: Search for book
+    Browser -> Book: GET /user/browse_books.php?search=title
+    activate Book
+    Book -> DB: SELECT books WHERE title LIKE ?
+    activate DB
+    DB --> Book: Book list
+    deactivate DB
+    Book --> Browser: Display books
+    deactivate Book
+    
+    User -> Browser: Click "Borrow"
+    Browser -> Borrow: POST /user/borrow_book.php
+    activate Borrow
+    
+    Borrow -> DB: Check book availability
+    activate DB
+    DB --> Borrow: Available copies
+    deactivate DB
+    
+    Borrow -> DB: Check user eligibility
+    activate DB
+    DB --> Borrow: No overdue books
+    deactivate DB
+    
+    Borrow -> DB: INSERT INTO borrowings
+    activate DB
+    DB --> Borrow: Borrowing ID
+    deactivate DB
+    
+    Borrow -> DB: UPDATE books SET available_copies
+    activate DB
+    DB --> Borrow: Success
+    deactivate DB
+    
+    Borrow --> Browser: Success message
+    deactivate Borrow
+    
+else Invalid Credentials
+    Login --> Browser: Error: Invalid credentials
+    deactivate Login
+end
+
+@enduml

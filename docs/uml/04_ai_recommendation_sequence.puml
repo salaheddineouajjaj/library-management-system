@@ -1,0 +1,84 @@
+@startuml Library_Management_AIRecommendation_Sequence
+!theme plain
+title Library Management System - AI Book Recommendation Sequence
+
+actor User
+participant "Browser" as Browser
+participant "RecommendationController" as Rec
+participant "Database" as DB
+participant "AI_Service" as AI
+participant "Gemini_API" as Gemini
+
+User -> Browser: Visit recommendations page
+Browser -> Rec: GET /user/recommendations.php
+activate Rec
+
+Rec -> DB: Get user's borrowing history
+activate DB
+DB --> Rec: List of borrowed books
+deactivate DB
+
+Rec -> DB: Get user's favorite categories
+activate DB
+DB --> Rec: Category preferences
+deactivate DB
+
+Rec -> DB: Get user's personal shelves
+activate DB
+DB --> Rec: Shelf data with books
+deactivate DB
+
+Rec -> AI: Generate recommendations request
+activate AI
+
+AI -> AI: Build context from user data
+note right
+  Context includes:
+  - Borrowed books (titles, authors)
+  - Favorite categories
+  - Reading patterns
+  - Personal shelf contents
+end note
+
+AI -> Gemini: POST to Gemini API
+activate Gemini
+note right of Gemini
+  Prompt: "Based on user's reading history
+  of [books], recommend 5 similar books
+  in categories [categories]"
+end note
+
+Gemini --> AI: AI-generated recommendations
+deactivate Gemini
+
+AI -> AI: Parse and validate response
+
+AI -> DB: Search recommended books in library
+activate DB
+DB --> AI: Available books from recommendations
+deactivate DB
+
+AI --> Rec: Recommended book list
+deactivate AI
+
+Rec -> DB: Get book details and availability
+activate DB
+DB --> Rec: Complete book information
+deactivate DB
+
+Rec --> Browser: Display recommendations with reason
+deactivate Rec
+
+User -> Browser: Click "Add to Shelf"
+Browser -> Rec: POST /user/add_to_shelf.php
+activate Rec
+
+Rec -> DB: INSERT INTO shelf_books
+activate DB
+DB --> Rec: Success
+deactivate DB
+
+Rec --> Browser: "Book added to your shelf"
+deactivate Rec
+
+@enduml

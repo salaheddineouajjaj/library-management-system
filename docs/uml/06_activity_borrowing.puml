@@ -1,0 +1,71 @@
+@startuml Library_Management_Activity_BookBorrowing
+!theme plain
+title Library Management System - Book Borrowing Activity Diagram
+
+start
+
+:User logs in;
+
+:Navigate to Browse Books;
+
+:Enter search query;
+
+:System displays available books;
+
+if (Book found?) then (yes)
+  :User clicks "Borrow Book";
+  
+  :System checks book availability;
+  
+  if (Copies available?) then (yes)
+    :System checks user eligibility;
+    
+    if (User has overdue books?) then (no)
+      if (User borrowing limit reached?) then (no)
+        :Calculate due date (14 days);
+        
+        partition "Database Transaction" {
+          :Create borrowing record;
+          :Decrease available copies;
+          :Update user statistics;
+        }
+        
+        :Send confirmation email;
+        
+        :Display success message;
+        
+        note right
+          "Book borrowed successfully!
+          Due date: [date]"
+        end note
+        
+        :Update user dashboard;
+        
+        stop
+        
+      else (yes)
+        :Display error message;
+        note right: "Borrowing limit reached (max 5 books)"
+        stop
+      endif
+      
+    else (yes)
+      :Display error message;
+      note right: "Please return overdue books first"
+      stop
+    endif
+    
+  else (no)
+    :Display error message;
+    note right: "Book is not available"
+    :Suggest adding to wishlist;
+    stop
+  endif
+  
+else (no)
+  :Display "No books found";
+  :Suggest alternative searches;
+  stop
+endif
+
+@enduml

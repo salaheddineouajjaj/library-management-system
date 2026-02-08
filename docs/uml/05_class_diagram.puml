@@ -1,0 +1,191 @@
+@startuml Library_Management_Class_Diagram
+!theme plain
+title Library Management System - Class Diagram
+
+' ============ Core Classes ============
+class User {
+  - id: int
+  - name: string
+  - email: string
+  - password_hash: string
+  - role: enum(user, admin)
+  - is_active: boolean
+  - created_at: datetime
+  - updated_at: datetime
+  --
+  + login(): boolean
+  + register(): boolean
+  + updateProfile(): boolean
+  + changePassword(): boolean
+  + getBorrowingHistory(): array
+  + getOverdueBooks(): array
+}
+
+class Book {
+  - id: int
+  - title: string
+  - author: string
+  - isbn: string
+  - category_id: int
+  - description: text
+  - cover_image: string
+  - total_copies: int
+  - available_copies: int
+  - publication_year: int
+  - created_at: datetime
+  --
+  + isAvailable(): boolean
+  + borrowBook(): boolean
+  + returnBook(): boolean
+  + updateCopies(): boolean
+  + getDetails(): array
+  + searchBooks(query: string): array
+}
+
+class Category {
+  - id: int
+  - name: string
+  - description: text
+  - created_at: datetime
+  --
+  + getBooks(): array
+  + addCategory(): boolean
+  + updateCategory(): boolean
+  + deleteCategory(): boolean
+}
+
+class Borrowing {
+  - id: int
+  - user_id: int
+  - book_id: int
+  - borrow_date: datetime
+  - due_date: datetime
+  - return_date: datetime
+  - status: enum(active, returned, overdue)
+  - created_at: datetime
+  --
+  + borrowBook(): boolean
+  + returnBook(): boolean
+  + extendDueDate(): boolean
+  + isOverdue(): boolean
+  + calculateFine(): float
+  + getActiveBorrowings(): array
+}
+
+class PersonalShelf {
+  - id: int
+  - user_id: int
+  - name: string
+  - description: text
+  - is_public: boolean
+  - created_at: datetime
+  --
+  + createShelf(): boolean
+  + addBook(book_id: int): boolean
+  + removeBook(book_id: int): boolean
+  + getBooks(): array
+  + updateShelf(): boolean
+  + deleteShelf(): boolean
+}
+
+class ShelfBook {
+  - id: int
+  - shelf_id: int
+  - book_id: int
+  - added_at: datetime
+  - notes: text
+  --
+  + addToShelf(): boolean
+  + removeFromShelf(): boolean
+}
+
+class ForumPost {
+  - id: int
+  - user_id: int
+  - title: string
+  - content: text
+  - category: string
+  - views: int
+  - is_pinned: boolean
+  - created_at: datetime
+  --
+  + createPost(): boolean
+  + updatePost(): boolean
+  + deletePost(): boolean
+  + getPosts(): array
+  + incrementViews(): boolean
+}
+
+class ForumComment {
+  - id: int
+  - post_id: int
+  - user_id: int
+  - content: text
+  - created_at: datetime
+  --
+  + addComment(): boolean
+  + updateComment(): boolean
+  + deleteComment(): boolean
+  + getComments(): array
+}
+
+class Message {
+  - id: int
+  - sender_id: int
+  - receiver_id: int
+  - subject: string
+  - message: text
+  - is_read: boolean
+  - created_at: datetime
+  --
+  + sendMessage(): boolean
+  + markAsRead(): boolean
+  + deleteMessage(): boolean
+  + getInbox(): array
+  + getSentMessages(): array
+}
+
+class AIRecommendation {
+  - id: int
+  - user_id: int
+  - recommended_books: json
+  - context: text
+  - created_at: datetime
+  --
+  + generateRecommendations(): array
+  + callGeminiAPI(): string
+  + parseResponse(): array
+  + saveRecommendations(): boolean
+}
+
+' ============ Relationships ============
+User "1" -- "0..*" Borrowing : borrows
+User "1" -- "0..*" PersonalShelf : creates
+User "1" -- "0..*" ForumPost : writes
+User "1" -- "0..*" ForumComment : comments
+User "1" -- "0..*" Message : sends
+User "1" -- "0..*" Message : receives
+User "1" -- "0..*" AIRecommendation : gets
+
+Book "1" -- "0..*" Borrowing : is borrowed
+Book "1" -- "0..*" ShelfBook : is in
+Book "*" -- "1" Category : belongs to
+
+PersonalShelf "1" -- "0..*" ShelfBook : contains
+
+ForumPost "1" -- "0..*" ForumComment : has
+
+' ============ Admin Class ============
+class Admin {
+  --
+  + manageUsers(): boolean
+  + manageBooks(): boolean
+  + manageCategories(): boolean
+  + viewReports(): array
+  + getStatistics(): array
+  + manageBorrowings(): boolean
+}
+
+User <|-- Admin : extends
+
+@enduml

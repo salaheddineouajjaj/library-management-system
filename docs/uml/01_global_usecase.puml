@@ -1,0 +1,83 @@
+@startuml Library_Management_Global_UseCase
+!theme plain
+title Library Management System - Global Use Case Diagram
+
+left to right direction
+
+' Actors
+actor "Guest" as Guest
+actor "User" as User
+actor "Admin" as Admin
+actor "AI System" as AI
+
+' User inherits from Guest
+Guest <|-- User
+User <|-- Admin
+
+rectangle "Library Management System" {
+  ' Guest Use Cases
+  usecase "Register Account" as UC1
+  usecase "Login" as UC2
+  usecase "Browse Books" as UC3
+  
+  ' User Use Cases
+  usecase "View Dashboard" as UC4
+  usecase "Search Books" as UC5
+  usecase "Borrow Book" as UC6
+  usecase "Return Book" as UC7
+  usecase "View My Library" as UC8
+  usecase "Manage Personal Shelves" as UC9
+  usecase "Get AI Recommendations" as UC10
+  usecase "View Borrowing History" as UC11
+  usecase "Participate in Forum" as UC12
+  usecase "Send Messages" as UC13
+  
+  ' Admin Use Cases
+  usecase "Manage Users" as UC14
+  usecase "Manage Books" as UC15
+  usecase "Manage Categories" as UC16
+  usecase "View Reports" as UC17
+  usecase "Manage Borrowings" as UC18
+  usecase "View Statistics" as UC19
+  usecase "Moderate Forum" as UC20
+}
+
+' Guest Relationships
+Guest --> UC1
+Guest --> UC2
+Guest --> UC3
+
+' User Relationships
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+User --> UC9
+User --> UC10
+User --> UC11
+User --> UC12
+User --> UC13
+
+' Admin Relationships
+Admin --> UC14
+Admin --> UC15
+Admin --> UC16
+Admin --> UC17
+Admin --> UC18
+Admin --> UC19
+Admin --> UC20
+
+' AI System Relationships
+AI --> UC10 : provides
+
+' Include Relationships
+UC6 ..> UC5 : <<include>>
+UC7 ..> UC11 : <<include>>
+UC9 ..> UC8 : <<include>>
+
+' Extend Relationships
+UC10 ..> UC5 : <<extend>>
+UC13 ..> UC12 : <<extend>>
+
+@enduml
