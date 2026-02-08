@@ -56,6 +56,16 @@ if (!isset($currentPage)) {
                     </a>
                 </li>
                 <li>
+                    <a href="<?= url('/user/forum.php') ?>" class="<?= $currentPage === 'forum' ? 'active' : '' ?>">
+                        Forum
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= url('/user/messages.php') ?>" class="<?= $currentPage === 'messages' ? 'active' : '' ?>">
+                        Messages
+                    </a>
+                </li>
+                <li>
                     <a href="<?= url('/logout.php') ?>" class="logout-link">
                         Logout
                     </a>
