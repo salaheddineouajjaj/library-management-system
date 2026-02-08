@@ -1,0 +1,274 @@
+/* ============================================
+   AUTH PAGES - LIBRARY ENTRANCE with Background
+   Beautiful login/register pages
+   ============================================ */
+
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    /* Rich library background with gradient */
+    background:
+        linear-gradient(135deg,
+            rgba(43, 30, 20, 0.85) 0%,
+            rgba(61, 42, 28, 0.75) 50%,
+            rgba(107, 90, 74, 0.65) 100%),
+        url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" stroke="%238b5e34" stroke-width="0.5" opacity="0.1"%3E%3Crect x="10" y="5" width="8" height="90" rx="1"/%3E%3Crect x="20" y="8" width="8" height="87" rx="1"/%3E%3Crect x="30" y="3" width="8" height="92" rx="1"/%3E%3Crect x="40" y="10" width="8" height="85" rx="1"/%3E%3Crect x="50" y="6" width="8" height="89" rx="1"/%3E%3Crect x="60" y="12" width="8" height="83" rx="1"/%3E%3Crect x="70" y="4" width="8" height="91" rx="1"/%3E%3Crect x="80" y="9" width="8" height="86" rx="1"/%3E%3C/g%3E%3C/svg%3E'),
+        linear-gradient(180deg, #2b1e14 0%, #3d2a1c 50%, #6b5a4a 100%);
+    background-size: cover, 100px 100px, cover;
+    background-position: center, center, center;
+    background-attachment: fixed;
+}
+
+/* Vignette effect */
+.auth-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center,
+            transparent 0%,
+            transparent 40%,
+            rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Floating book shapes for atmosphere */
+.auth-page::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(200, 178, 142, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 94, 52, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(107, 90, 74, 0.04) 0%, transparent 50%);
+    animation: floatBooks 30s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatBooks {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(20px, -20px) rotate(1deg);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) rotate(-1deg);
+    }
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    z-index: 10;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-card {
+    background: linear-gradient(135deg, #fdfcf9 0%, #f7f3ed 100%);
+    border-radius: 12px;
+    padding: 3.5rem 3rem;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(200, 178, 142, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    border: 2px solid rgba(212, 203, 184, 0.5);
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+/* Decorative book spine */
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            #6d4a28 0%,
+            #8b5e34 50%,
+            #6d4a28 100%);
+    border-radius: 12px 0 0 12px;
+    box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Brass accent line */
+.auth-card::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 4px;
+    width: 4px;
+    height: calc(100% - 40px);
+    background: linear-gradient(180deg,
+            transparent 0%,
+            #c8b28e 20%,
+            #c8b28e 80%,
+            transparent 100%);
+    border-radius: 2px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+/* Decorative header accent */
+.auth-header::before {
+    content: '📚';
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.auth-header h1 {
+    font-size: 2.5rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #1a1008 !important;
+    font-family: 'Crimson Text', 'Georgia', serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.auth-header p {
+    color: #6b5a4a !important;
+    margin-bottom: 0 !important;
+    font-size: 1.125rem !important;
+    font-family: 'Lora', serif !important;
+    font-style: italic;
+}
+
+.auth-form {
+    margin-bottom: 2rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.75rem;
+}
+
+.auth-form label {
+    color: #2b1e14 !important;
+    font-family: 'Lora', serif !important;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+}
+
+.auth-form input {
+    background: #ffffff !important;
+    border: 2px solid #d4cbb8 !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Lora', serif !important;
+    padding: 0.875rem 1.125rem !important;
+    font-size: 1rem !important;
+    box-shadow: inset 0 1px 3px rgba(43, 30, 20, 0.08) !important;
+}
+
+.auth-form input:focus {
+    border-color: #8b5e34 !important;
+    box-shadow:
+        0 0 0 4px rgba(139, 94, 52, 0.15),
+        inset 0 1px 3px rgba(43, 30, 20, 0.08) !important;
+    background: #fffef8 !important;
+}
+
+.auth-form input::placeholder {
+    color: #8c7a68 !important;
+    font-style: italic;
+}
+
+.auth-form .btn-block {
+    width: 100% !important;
+    padding: 1.125rem 1.75rem !important;
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    margin-top: 1.5rem !important;
+    background: linear-gradient(180deg, #8b5e34 0%, #6d4a28 100%) !important;
+    border: none !important;
+    box-shadow:
+        0 4px 12px rgba(139, 94, 52, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.03em;
+}
+
+.auth-form .btn-block:hover {
+    background: linear-gradient(180deg, #6d4a28 0%, #5d3f22 100%) !important;
+    box-shadow:
+        0 6px 16px rgba(139, 94, 52, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px);
+}
+
+.auth-footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(212, 203, 184, 0.5);
+}
+
+.auth-footer p {
+    margin-bottom: 0 !important;
+    color: #6b5a4a !important;
+    font-family: 'Lora', serif !important;
+    font-size: 1rem !important;
+}
+
+.auth-footer a {
+    color: #8b5e34 !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    border-bottom: 2px solid transparent !important;
+    text-decoration: none !important;
+}
+
+.auth-footer a:hover {
+    color: #6d4a28 !important;
+    border-bottom-color: #c8b28e !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .auth-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .auth-header h1 {
+        font-size: 2rem !important;
+    }
+
+    .auth-header::before {
+        font-size: 2.5rem;
+    }
+}

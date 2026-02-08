@@ -30,6 +30,7 @@ if (!isset($pageTitle)) {
     <link rel="stylesheet" href="<?= url('/css/library-theme.css') ?>">
     <link rel="stylesheet" href="<?= url('/css/navigation.css') ?>">
     <link rel="stylesheet" href="<?= url('/css/style.css') ?>">
+    <link rel="stylesheet" href="<?= url('/css/auth-library.css') ?>">
     <link rel="stylesheet" href="<?= url('/css/dropdown.css') ?>">
     <link rel="stylesheet" href="<?= url('/css/library.css') ?>">
     <link rel="stylesheet" href="<?= url('/css/manage-shelf.css') ?>">
