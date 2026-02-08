@@ -1,212 +1,263 @@
 /**
- * Library Management System - REAL LIBRARY INTERIOR
- * Dramatic transformation: Dark reading room + Aged paper + Ink
+ * Library Management System - COMPLETE THEME OVERRIDE
+ * This file MUST load first to override ALL old variables
  */
 
 /* ============================================
-   CSS VARIABLES - DRAMATIC LIBRARY PALETTE
+   DRAMATIC LIBRARY PALETTE - Overrides Everything
    ============================================ */
 :root {
-    /* Page backgrounds - Rich parchment & aged paper */
-    --bg-page: #ebe6dc;
-    --bg-page-dark: #e0d9cc;
-    --bg-surface: #f7f3ed;
-    --bg-surface-alt: #f0ebe2;
-    --bg-surface-hover: #e8e3d7;
+    /* OLD VARIABLE OVERRIDES - Force new colors */
+    --color-bg: #ebe6dc !important;
+    --color-bg-dark: #e0d9cc !important;
+    --color-surface: #f7f3ed !important;
+    --color-surface-alt: #f0ebe2 !important;
+    --color-surface-hover: #e8e3d7 !important;
 
-    /* Dark reading room (NAVBAR) - Very noticeable change */
-    --bg-navbar: #1f2a24;
-    --bg-navbar-hover: #2a3830;
+    /* Text - Deep ink */
+    --color-text: #2b1e14 !important;
+    --color-text-muted: #6b5a4a !important;
+    --color-text-heading: #1a1008 !important;
+    --color-text-light: #8c7a68 !important;
+    --color-text-nav: #f4ede3 !important;
 
-    /* Wood tones - Rich and visible */
-    --color-wood: #8b5e34;
-    --color-wood-dark: #6d4a28;
-    --color-wood-light: #a67c52;
+    /* Wood tones */
+    --color-wood: #8b5e34 !important;
+    --color-wood-dark: #6d4a28 !important;
+    --color-wood-light: #a67c52 !important;
 
-    /* Text - Deep ink colors */
-    --text-primary: #2b1e14;
-    --text-heading: #1a1008;
-    --text-muted: #6b5a4a;
-    --text-light: #8c7a68;
-    --text-on-dark: #f4ede3;
+    /* Primary colors - Wood theme */
+    --color-primary: #8b5e34 !important;
+    --color-primary-hover: #6d4a28 !important;
+    --color-primary-light: #a67c52 !important;
+    --color-primary-bright: #c8b28e !important;
 
-    /* Accent colors - Brass & library materials */
-    --accent-brass: #c8b28e;
-    --accent-brass-bright: #d4c4a0;
-    --accent-wood: #8b5e34;
-    --accent-oxblood: #6b2e2e;
-    --accent-forest: #3a5a40;
+    /* Accent colors */
+    --color-accent-gold: #c8b28e !important;
+    --color-accent-green: #3a5a40 !important;
+    --color-accent-burgundy: #6b2e2e !important;
 
-    /* Status colors - Muted library tones */
-    --color-success: #5a7a5a;
-    --color-success-bg: #e8f0e8;
-    --color-warning: #b8904f;
-    --color-warning-bg: #faf6ed;
-    --color-danger: #8a4545;
-    --color-danger-bg: #f7eeee;
-    --color-info: #5a6d7a;
-    --color-info-bg: #eef3f7;
+    /* Status colors */
+    --color-success: #5a7a5a !important;
+    --color-success-bg: #e8f0e8 !important;
+    --color-warning: #b8904f !important;
+    --color-warning-bg: #faf6ed !important;
+    --color-danger: #8a4545 !important;
+    --color-danger-bg: #f7eeee !important;
+    --color-info: #5a6d7a !important;
+    --color-info-bg: #eef3f7 !important;
 
-    /* Borders - Visible definition */
-    --border-paper: #d4cbb8;
-    --border-wood: #8b5e34;
-    --border-dark: #4a3f32;
-    --border-light: #e8e0d0;
+    /* Borders */
+    --color-border: #d4cbb8 !important;
+    --color-border-light: #e8e0d0 !important;
+    --color-border-dark: #4a3f32 !important;
 
-    /* Shadows - Material depth */
-    --shadow-paper: 0 2px 8px rgba(43, 30, 20, 0.12);
-    --shadow-card: 0 4px 12px rgba(43, 30, 20, 0.15);
-    --shadow-book: 2px 4px 12px rgba(43, 30, 20, 0.2);
-    --shadow-deep: 0 8px 24px rgba(43, 30, 20, 0.25);
-
-    /* Spacing */
-    --spacing-xs: 0.375rem;
-    --spacing-sm: 0.625rem;
-    --spacing-md: 1.25rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
-    --border-radius: 4px;
-    --border-radius-lg: 8px;
-
-    /* Sidebar */
-    --sidebar-width: 280px;
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(43, 30, 20, 0.10) !important;
+    --shadow-md: 0 4px 12px rgba(43, 30, 20, 0.12) !important;
+    --shadow-lg: 0 8px 20px rgba(43, 30, 20, 0.15) !important;
+    --shadow-book: 2px 4px 12px rgba(43, 30, 20, 0.18) !important;
 }
 
 /* ============================================
-   BASE STYLES - Rich Paper Foundation
+   GLOBAL BASE - Apply to ALL pages
    ============================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: 'Crimson Text', 'Georgia', 'Palatino Linotype', serif;
-    background: var(--bg-page);
+    background: #ebe6dc !important;
     background-image:
         repeating-linear-gradient(0deg,
             transparent,
             transparent 2px,
-            rgba(43, 30, 20, 0.02) 2px,
-            rgba(43, 30, 20, 0.02) 4px);
-    background-attachment: fixed;
-    color: var(--text-primary);
-    line-height: 1.8;
-    min-height: 100vh;
+            rgba(43, 30, 20, 0.015) 2px,
+            rgba(43, 30, 20, 0.015) 4px) !important;
+    background-attachment: fixed !important;
+    color: #2b1e14 !important;
+    font-family: 'Crimson Text', 'Georgia', serif !important;
+    line-height: 1.75 !important;
 }
 
-a {
-    color: var(--color-wood);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid transparent;
-}
-
-a:hover {
-    color: var(--color-wood-dark);
-    border-bottom-color: var(--accent-brass);
-}
-
-/* Headings - Book Title Typography */
+/* Headings - Book Typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: 'Crimson Text', 'Georgia', serif;
-    color: var(--text-heading);
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    line-height: 1.25;
-    margin-bottom: var(--spacing-md);
+    font-family: 'Crimson Text', 'Georgia', serif !important;
+    color: #1a1008 !important;
+    font-weight: 600 !important;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-lg);
-    border-bottom: 3px double var(--border-paper);
-    padding-bottom: var(--spacing-md);
-}
-
-h2 {
-    font-size: 1.875rem;
-    margin-bottom: var(--spacing-md);
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-h4 {
-    font-size: 1.25rem;
+    font-size: 2.25rem !important;
+    border-bottom: 2px solid #d4cbb8 !important;
 }
 
 p {
-    margin-bottom: var(--spacing-md);
-    font-family: 'Lora', 'Georgia', serif;
-    line-height: 1.8;
+    font-family: 'Lora', 'Georgia', serif !important;
+    line-height: 1.75 !important;
 }
 
 /* ============================================
-   UTILITIES
+   ADMIN LAYOUT FIX - Make compatible
    ============================================ */
-.text-muted {
-    color: var(--text-muted);
+.admin-layout {
+    background: #ebe6dc !important;
 }
 
-.text-success {
-    color: var(--color-success);
+.sidebar {
+    background: #f0ebe2 !important;
+    border-right: 2px solid #d4cbb8 !important;
 }
 
-.text-warning {
-    color: var(--color-warning);
+.sidebar-header {
+    background: #8b5e34 !important;
+    border-bottom: none !important;
 }
 
-.text-danger {
-    color: var(--color-danger);
+.sidebar-header h1 {
+    color: #f4ede3 !important;
+    font-size: 1.375rem !important;
 }
 
-.text-primary {
-    color: var(--color-wood);
+.sidebar-nav a {
+    color: #2b1e14 !important;
 }
 
-.text-center {
-    text-align: center;
+.sidebar-nav a:hover {
+    background: #e8e3d7 !important;
+    color: #1a1008 !important;
 }
 
-.text-right {
-    text-align: right;
+.sidebar-nav a.active {
+    background: #8b5e34 !important;
+    color: #f4ede3 !important;
 }
 
-.mt-1 {
-    margin-top: var(--spacing-sm);
+.sidebar-section-title {
+    color: #6b5a4a !important;
 }
 
-.mt-2 {
-    margin-top: var(--spacing-md);
+.main-content {
+    background: #f7f3ed !important;
 }
 
-.mt-3 {
-    margin-top: var(--spacing-lg);
+/* ============================================
+   CARDS - Paper Material
+   ============================================ */
+.card,
+.stat-card {
+    background: #fdfcf9 !important;
+    border: 1.5px solid #d4cbb8 !important;
+    box-shadow: 0 3px 10px rgba(43, 30, 20, 0.10) !important;
 }
 
-.mb-1 {
-    margin-bottom: var(--spacing-sm);
+/* ============================================
+   TABLES - Library Register
+   ============================================ */
+table {
+    background: #fdfcf9 !important;
 }
 
-.mb-2 {
-    margin-bottom: var(--spacing-md);
+table th {
+    background: #f0ebe2 !important;
+    color: #1a1008 !important;
+    border-bottom: 2px solid #d4cbb8 !important;
 }
 
-.mb-3 {
-    margin-bottom: var(--spacing-lg);
+table td {
+    border-bottom: 1px solid #e8e0d0 !important;
 }
 
-/* Continue with rest of file... */
+table tbody tr:hover {
+    background: #f7f3ed !important;
+}
+
+table tbody tr:nth-child(even) {
+    background: #faf8f5 !important;
+}
+
+/* ============================================
+   BUTTONS - Library Style
+   ============================================ */
+.btn-primary {
+    background: linear-gradient(180deg, #8b5e34 0%, #6d4a28 100%) !important;
+    border: 1px solid #6d4a28 !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(180deg, #6d4a28 0%, #5d3f22 100%) !important;
+}
+
+.btn-secondary {
+    background: #f0ebe2 !important;
+    color: #2b1e14 !important;
+    border: 1.5px solid #d4cbb8 !important;
+}
+
+.btn-secondary:hover {
+    background: #e8e3d7 !important;
+    border-color: #8b5e34 !important;
+}
+
+/* ============================================
+   FORMS - Catalog Cards
+   ============================================ */
+input,
+select,
+textarea {
+    background: #fdfcf9 !important;
+    border: 1.5px solid #d4cbb8 !important;
+    color: #2b1e14 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #8b5e34 !important;
+    box-shadow: 0 0 0 3px rgba(139, 94, 52, 0.12) !important;
+    background: #ffffff !important;
+}
+
+/* ============================================
+   ALERTS - Library Notices
+   ============================================ */
+.alert {
+    border-width: 1.5px !important;
+}
+
+.alert-success {
+    background: #e8f0e8 !important;
+    border-color: #5a7a5a !important;
+    color: #3a5a3a !important;
+}
+
+.alert-error,
+.alert-danger {
+    background: #f7eeee !important;
+    border-color: #8a4545 !important;
+    color: #6a3535 !important;
+}
+
+.alert-warning {
+    background: #faf6ed !important;
+    border-color: #b8904f !important;
+    color: #8a6a3a !important;
+}
+
+/* ============================================
+   BADGES - Library Stamps
+   ============================================ */
+.badge {
+    font-family: 'Lato', sans-serif !important;
+    border-width: 1px !important;
+}
+
+/* ============================================
+   SEARCH BOX - Catalog Search
+   ============================================ */
+.search-box {
+    background: #fdfcf9 !important;
+    border: 1.5px solid #d4cbb8 !important;
+    box-shadow: 0 2px 8px rgba(43, 30, 20, 0.08) !important;
+}
