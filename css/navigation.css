@@ -1,0 +1,140 @@
+/* ============================================
+   NAVIGATION - Dark Navy Theme
+   Matching Goodreads aesthetic
+   ============================================ */
+
+/* Top Navigation Bar */
+.top-nav {
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.top-nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.top-nav-brand {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.top-nav-brand:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.top-nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.top-nav-menu li {
+    margin: 0;
+}
+
+.top-nav-menu a {
+    display: block;
+    padding: 1rem 1.25rem;
+    color: var(--color-text-nav);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    position: relative;
+}
+
+.top-nav-menu a:hover {
+    color: var(--color-text-light);
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+}
+
+.top-nav-menu a.active {
+    color: #ffffff;
+    background: var(--color-primary-bright);
+}
+
+/* User Layout Container */
+.user-layout {
+    min-height: 100vh;
+    background: var(--color-bg);
+}
+
+.user-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--color-surface);
+    min-height: calc(100vh - 60px);
+    border-radius: 0;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.page-header h1 {
+    color: var(--color-text-heading);
+    margin-bottom: 0.5rem;
+    font-family: Georgia, serif;
+}
+
+.page-header .text-muted {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* Responsive Navigation */
+@media (max-width: 968px) {
+    .top-nav-inner {
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+
+    .top-nav-menu {
+        gap: 0.25rem;
+    }
+
+    .top-nav-menu a {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .user-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-nav-menu {
+        flex-wrap: wrap;
+    }
+
+    .top-nav-menu a {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}

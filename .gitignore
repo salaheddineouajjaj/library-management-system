@@ -1,0 +1,49 @@
+# Configuration Files (containing sensitive data)
+config/config.php
+config/ai_config.php
+
+# Database dumps
+*.sql.backup
+*.sql.zip
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# PHP temporary files
+*.cache
+
+# Test files
+test_*.php
+debug_*.php
+
+# Uploaded files (if any)
+uploads/*
+!uploads/.gitkeep
+
+# Session files
+sessions/*
+!sessions/.gitkeep
+
+# Cache directories
+cache/*
+!cache/.gitkeep
+
+# Node modules (if using npm)
+node_modules/
+
+# Composer vendor (if using composer)
+vendor/

@@ -1,0 +1,80 @@
+/* ============================================
+   DROPDOWN MENU - Debug Version
+   ============================================ */
+.dropdown {
+    position: relative !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+.dropdown-toggle {
+    position: relative !important;
+    cursor: pointer !important;
+}
+
+.dropdown-toggle::after {
+    content: ' ▼' !important;
+    font-size: 0.7em !important;
+    margin-left: 0.25rem !important;
+}
+
+/* Dropdown Menu - Force visibility on hover */
+.dropdown-menu {
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    z-index: 999999 !important;
+    min-width: 220px !important;
+    background: #ffffff !important;
+    border: 2px solid #8b7355 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+    padding: 0.5rem 0 !important;
+    margin-top: 0.5rem !important;
+}
+
+/* Show on hover - IMPORTANT */
+.dropdown:hover>.dropdown-menu {
+    display: block !important;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    display: block !important;
+    width: 100% !important;
+    padding: 1rem 1.5rem !important;
+    text-align: left !important;
+    background: transparent !important;
+    border: none !important;
+    color: #4a3f32 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+}
+
+.dropdown-item:hover {
+    background: #f5f1e8 !important;
+    color: #3a2f24 !important;
+}
+
+.dropdown-item:active {
+    background: #8b7355 !important;
+    color: #ffffff !important;
+}
+
+/* Override any parent styles */
+.book-card,
+.book-actions,
+.book-details,
+.card {
+    overflow: visible !important;
+}
+
+.dropdown-menu form {
+    margin: 0 !important;
+    padding: 0 !important;
+}

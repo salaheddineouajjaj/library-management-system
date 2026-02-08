@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Test</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dropdown.css">
+    <style>
+        body {
+            padding: 2rem;
+            background: #0a1628;
+        }
+        .test-container {
+            background: #f5f1e8;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background: #5b7ce6;
+            color: white;
+        }
+        .btn-secondary {
+            background: #6b5b4a;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h2>Dropdown Test</h2>
+        <p>Click the "+ Library" button to test the dropdown:</p>
+        
+        <div style="margin-top: 2rem;">
+            <button class="btn btn-primary">Borrow</button>
+            
+            <div class="dropdown" style="display: inline-block; margin-left: 1rem;">
+                <button class="btn btn-secondary dropdown-toggle">+ Library</button>
+                <div class="dropdown-menu">
+                    <button type="button" class="dropdown-item">📋 Want to Read</button>
+                    <button type="button" class="dropdown-item">📖 Currently Reading</button>
+                    <button type="button" class="dropdown-item">✅ Finished</button>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 2rem; padding: 1rem; background: #fff; border-radius: 4px;">
+            <p><strong>Expected behavior:</strong></p>
+            <ul>
+                <li>Click "+ Library" button</li>
+                <li>White dropdown menu appears below</li>
+                <li>Shows all 3 options clearly</li>
+                <li>Options are clickable</li>
+                <li>Menu closes when clicking outside</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="/js/dropdown.js"></script>
+    <script>
+        // Add click handlers to dropdown items for testing
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                alert('Selected: ' + this.textContent.trim());
+            });
+        });
+    </script>
+</body>
+</html>

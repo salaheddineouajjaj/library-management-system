@@ -1,0 +1,320 @@
+/* ============================================
+   MANAGE SHELF PAGE - Library Theme
+   ============================================ */
+
+.manage-shelf-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.manage-shelf-card {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Book Showcase Section */
+.book-showcase {
+    display: flex;
+    gap: 3rem;
+    padding: 2rem 0;
+    background: transparent;
+    border-bottom: 1px solid #e8dfc8;
+    margin-bottom: 2rem;
+}
+
+.showcase-cover {
+    width: 180px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(107, 91, 74, 0.2);
+    flex-shrink: 0;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-info h2 {
+    font-size: 2rem;
+    color: #3a2f24;
+    margin-bottom: 0.5rem;
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+
+.author-name {
+    font-size: 1.2rem;
+    color: #8b7a65;
+    margin-bottom: 1rem;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: #8b7355;
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.book-description {
+    margin-top: 1.5rem;
+    color: #6b5b4a;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Current Shelf Status */
+.current-shelf-status {
+    padding: 1.25rem 0;
+    background: transparent;
+    border-bottom: 1px solid #e8dfc8;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.status-label {
+    color: #8b7a65;
+    font-size: 1rem;
+}
+
+.shelf-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #8b7355;
+}
+
+/* Shelf Management Section */
+.shelf-management {
+    padding: 0;
+}
+
+.shelf-management h3 {
+    color: #3a2f24;
+    margin-bottom: 1.5rem;
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* Shelf Options - Radio Cards */
+.shelf-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.shelf-option {
+    cursor: pointer;
+}
+
+.shelf-option input[type="radio"] {
+    display: none;
+}
+
+.option-card {
+    padding: 2rem 1.5rem;
+    background: #faf8f3;
+    border: 2px solid #d4cbb8;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.shelf-option:hover .option-card {
+    background: #f5f1e8;
+    border-color: #a89a85;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(107, 91, 74, 0.15);
+}
+
+.shelf-option input[type="radio"]:checked+.option-card {
+    background: #8b7355;
+    border-color: #8b7355;
+    box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
+}
+
+.option-icon {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+}
+
+.shelf-option input[type="radio"]:checked+.option-card .option-icon,
+.shelf-option input[type="radio"]:checked+.option-card .option-label {
+    color: #ffffff;
+}
+
+.option-label {
+    display: block;
+    font-weight: 600;
+    color: #4a3f32;
+    font-size: 1.05rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+/* Mark as Finished Section */
+.mark-finished-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e8dfc8;
+}
+
+.mark-finished-section h3 {
+    color: #3a2f24;
+    margin-bottom: 1.5rem;
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* Star Rating */
+.rating-section {
+    margin-bottom: 1.5rem;
+}
+
+.rating-section label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: #4a3f32;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.star-rating {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.star-label {
+    cursor: pointer;
+}
+
+.star-label input[type="radio"] {
+    display: none;
+}
+
+.star-icon {
+    font-size: 2.5rem;
+    color: #d4cbb8;
+    transition: all 0.2s ease;
+}
+
+.star-label:hover .star-icon {
+    color: #f4c430;
+    transform: scale(1.15);
+}
+
+.star-label input[type="radio"]:checked+.star-icon {
+    color: #f4c430;
+}
+
+/* Form Group */
+.shelf-management .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.shelf-management .form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: #4a3f32;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.shelf-management .form-group textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #d4cbb8;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #4a3f32;
+    background: #faf8f3;
+    resize: vertical;
+    transition: all 0.3s ease;
+    min-height: 120px;
+}
+
+.shelf-management .form-group textarea:focus {
+    outline: none;
+    border-color: #8b7355;
+    background: #ffffff;
+}
+
+.shelf-management .form-group textarea::placeholder {
+    color: #a89a85;
+}
+
+/* Back Link */
+.back-link {
+    padding: 2rem 0 0 0;
+    background: transparent;
+    border-top: 1px solid #e8dfc8;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .book-showcase {
+        gap: 2rem;
+    }
+
+    .shelf-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .book-showcase {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .showcase-cover {
+        width: 160px;
+        height: 240px;
+    }
+
+    .book-info h2 {
+        font-size: 1.6rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+
+    .option-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .option-icon {
+        font-size: 2.5rem;
+    }
+}
